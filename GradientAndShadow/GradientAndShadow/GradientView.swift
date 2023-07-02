@@ -14,7 +14,7 @@ class GradientAndShadowView: UIView {
         
         self.roundCorners()
         self.addGragientEffect()
-        self.addShadowEffect(cornerRadius: 12.0, width: 0.0, height: 0.0)
+        self.addShadowEffect(cornerRadius: self.layer.cornerRadius, width: 5.0, height: 5.0)
     }
     
     override init(frame: CGRect) {
@@ -32,9 +32,10 @@ extension UIView {
     
     func addShadowEffect(cornerRadius: CGFloat, width: CGFloat, height: CGFloat){
         layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: cornerRadius).cgPath
-        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowColor = UIColor.darkGray.cgColor
         layer.shadowOffset = CGSize(width: width, height: height)
         layer.shadowOpacity = 1.0
+        layer.frame = CGRect(origin: CGPoint(x: self.frame.origin.x +  layer.shadowOffset.width, y: self.frame.origin.y +  layer.shadowOffset.height), size: CGSize(width: self.bounds.width, height: self.bounds.height))
         layer.shouldRasterize = true
     }
     
