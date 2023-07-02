@@ -35,7 +35,6 @@ extension UIView {
         layer.shadowColor = UIColor.darkGray.cgColor
         layer.shadowOffset = CGSize(width: width, height: height)
         layer.shadowOpacity = 1.0
-        layer.frame = CGRect(origin: CGPoint(x: self.frame.origin.x + layer.shadowOffset.width, y: self.frame.origin.y +  layer.shadowOffset.height), size: CGSize(width: self.bounds.width, height: self.bounds.height))
         layer.shouldRasterize = true
     }
     
